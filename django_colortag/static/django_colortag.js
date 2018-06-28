@@ -39,7 +39,7 @@ function django_colortag_label(colortag, options_) {
   attrs['class'] = classes.join(' ');
   attrs['style'] = 'background-color: ' + colortag.color + ';';
 
-  for (const k in colortag['data-attrs']) {
+  for (var k in colortag['data-attrs']) {
     attrs['data-tag' + k] = colortag['data-attrs'][k];
   }
 
