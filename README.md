@@ -10,7 +10,7 @@ Installation and usage
 
 Requirements:
 
- * [Django](https://www.djangoproject.com/) 1.9+
+ * [Django](https://www.djangoproject.com/) 1.11+ (Django 1.9 and 1.10 are supported in versions 1.X of this project)
  * [django-html5-colorfield](https://github.com/knyghty/django-html5-colorfield) 1.0+
  * [js-jquery-toggle-django](https://github.com/Aalto-LeTech/js-jquery-toggle) for `jquery_toggle.js`
  * (recommended) [raphendyr-django-essentials](https://github.com/raphendyr/raphendyr-django-essentials) for app dependency management
@@ -18,7 +18,7 @@ Requirements:
 Add stuff to `requirements.txt`:
 
 ```
-git+https://github.com/Aalto-LeTech/django-colortag.git@1.2.0#egg=django-colortag==1.2.0
+git+https://github.com/Aalto-LeTech/django-colortag.git@2.0.0#egg=django-colortag==2.0.0
 ```
 
 Install them with `pip install --process-dependency-links -r requirements.txt`
