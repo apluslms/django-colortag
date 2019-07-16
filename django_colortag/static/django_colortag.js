@@ -54,13 +54,11 @@ function django_colortag_label(colortag, options_) {
 }
 
 function django_colortag_choice() {
-	jQuery(this).replaceCheckboxesWithButtons({
+	jQuery(this).replaceInputsWithMultiStateButtons({
 		groupClass: 'colortag-container',
 		buttonClass: '',
-		onicon: 'check',
-		officon: 'unchecked',
 		nocolor: true,
-		buttonSetup: function(input, button, group) {
+		buttonSetup: function(input, button) {
 			button.css('backgroundColor', input.data('background'));
 		},
 	});

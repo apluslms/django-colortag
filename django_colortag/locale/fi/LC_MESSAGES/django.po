@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-14 10:12+0300\n"
+"POT-Creation-Date: 2019-08-29 13:34+0300\n"
 "PO-Revision-Date: 2016-09-14 10:20+0200\n"
 "Last-Translator: Jaakko Kantojärvi <jaakko@n-1.fi>\n"
 "Language-Team: English <>\n"
@@ -17,21 +17,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: django_colortag/models.py:17
+#: django_colortag_/models.py:23
 msgid "Display name for tag"
 msgstr "Tagin näyttönimi"
 
-#: django_colortag/models.py:18
+#: django_colortag_/models.py:24
 msgid "Slug key for tag. If left blank, one is created from name"
 msgstr ""
-"Yksisanainen tunniste tagille. Jos jätät tyhjäksi, sopiva luodaan tagin"
-" nimestä."
+"Yksisanainen tunniste tagille. Jos jätät tyhjäksi, sopiva luodaan tagin "
+"nimestä."
 
-#: django_colortag/models.py:19
+#: django_colortag_/models.py:25
 msgid "Describe the usage or meaning of this tag"
 msgstr "Kuvaile tagin käyttö tai merkitys."
 
-#: django_colortag/models.py:20
+#: django_colortag_/models.py:26
 msgid "Color that is used as background for this tag"
 msgstr "Tagin taustaväri"
 
+#: django_colortag_/widgets.py:162
+msgid "Match any (OR)"
+msgstr "Sisällä osa (TAI)"
+
+#: django_colortag_/widgets.py:163
+msgid "Match all (AND)"
+msgstr "Sisällä kaikki (JA)"
