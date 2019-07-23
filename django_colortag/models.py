@@ -61,6 +61,9 @@ class ColorTag(models.Model):
         else:
             return NotImplemented
 
+    # Check django issue 30333: https://code.djangoproject.com/ticket/30333
+    __hash__ = models.Model.__hash__
+
     def is_valid_slug(self, slug):
         """
         Check if the slug is valid. By default any slug is valid; you might want
