@@ -1,3 +1,5 @@
+import string
+
 from django.db import models
 from django.utils.crypto import get_random_string
 from django.utils.functional import cached_property
@@ -51,15 +53,13 @@ class ColorTag(models.Model):
         """Compare slugs if other is a string. Otherwise delegate to super"""
         if isinstance(other, str):
             return self.slug == other
-        else:
-            return super().__eq__(other)
+        return super().__eq__(other)
 
     def __gt__(self, other):
         """Compare ColorTags by slug"""
         if isinstance(other, ColorTag):
             return self.slug > other.slug
-        else:
-            return NotImplemented
+        return NotImplemented
 
     # Check django issue 30333: https://code.djangoproject.com/ticket/30333
     __hash__ = models.Model.__hash__
@@ -72,16 +72,14 @@ class ColorTag(models.Model):
         return True
 
     def save(self, *args, **kwargs):
-        assert self.name
+        assert self.name, "name is a required parameter"
 
         slug_candidate = self.slug or slugify(self.name)
-        for i in range(1000):
-            if self.is_valid_slug(slug_candidate):
-                break
-            else:
-                slug_candidate += get_random_string(length=1)
-        else:
-            raise RuntimeError('Out of slugs')
+        slug_chars = string.ascii_lowercase + string.digits
+        while not self.is_valid_slug(slug_candidate) and len(slug_candidate) < MAX_LENGTH:
+            slug_candidate += get_random_string(length=1, allowed_chars=slug_chars)
+        if len(slug_candidate) >= MAX_LENGTH:
+            raise RuntimeError("Unable to find an unique slug")
 
         self.slug = slug_candidate
 
