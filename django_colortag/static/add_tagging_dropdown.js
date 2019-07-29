@@ -104,9 +104,9 @@ const get_create_tagging_dropdown_closure = (function ($) {
       tags_xhr().done(function (data) {
         const all_tags = data.results;
         const tags = all_tags.filter(function (tag) {
-          // true iff tag.id is in exclude_tag_ids.
+          // true if tag.id is not null and it is not in exclude_tag_ids.
           // TODO: replace with Array.includes once IE is no longer relevant
-          return exclude_tag_ids.indexOf(tag.id) === -1;
+          return tag.id !== null && exclude_tag_ids.indexOf(tag.id) === -1;
         });
 
         // Construct the dropdown
