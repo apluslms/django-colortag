@@ -7,7 +7,7 @@ from colorfield.fields import ColorField
 from functools import total_ordering
 
 from .templatetags.colortag import render_as_button
-from .utils import gray_tone
+from .utils import use_white_font
 
 MAX_LENGTH = 20
 
@@ -24,16 +24,8 @@ class ColorTag(models.Model):
     color = ColorField(default="#CD0000", help_text=_("Color that is used as background for this tag"))
 
     @cached_property
-    def color_gray_tone(self):
-        return gray_tone(self.color)
-
-    @cached_property
-    def color_gray_tone_edge(self):
-        return not (0.1 < self.color_gray_tone < 0.9)
-
-    @cached_property
     def font_white(self):
-        return self.color_gray_tone < 0.5
+        return use_white_font(self.color)
 
     @cached_property
     def font_color(self):
