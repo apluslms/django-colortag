@@ -34,6 +34,14 @@ class ColorTag(models.Model):
     def render_as_button(self, **options):
         return render_as_button(self, options)
 
+    @cached_property
+    def html_button(self):
+        return render_as_button(self)
+
+    @cached_property
+    def html_label(self):
+        return render_as_button(self, {'static': True})
+
     def __str__(self):
         return 'ColorTag({!r}, {!r}, {!r})'.format(
             self.name, self.slug, self.description
