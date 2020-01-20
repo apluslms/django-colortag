@@ -19,7 +19,7 @@ class ColorTagForm(forms.ModelForm):
         self.fields['slug'].required = False
 
     def clean(self):
-        cleaned_data = super().clean() or self.cleaned_data
+        cleaned_data = self.cleaned_data # NOTE: ignore unique constraints, so DO NOT call super().clean()
 
         # create slug from name if there is no slug, but there is name
         name = cleaned_data.get('name')
