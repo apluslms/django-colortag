@@ -19,11 +19,11 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='django-colortag',
-    version='2.2.0',
+    version='2.3.0',
     description='Django tools for data tagging models',
     long_description=long_description,
     keywords='django models tagging',
-    url='https://github.com/Aalto-LeTech/django-colortag',
+    url='https://github.com/apluslms/django-colortag',
     author='Jaakko Kantojärvi',
     author_email='jaakko@n-1.fi',
     license='MIT',
@@ -43,10 +43,15 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Framework :: Django',
         'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.2',
 
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3 :: Only',
     ],
 
@@ -54,11 +59,11 @@ setup(
     include_package_data = True,
 
     install_requires=[
-        'Django >=1.11.0, <3',
+        'Django >=1.11.0, <4',
         'django-html5-colorfield >=1.0, <2',
         'js-jquery-toggle-django >=1.1.0, <2',
     ],
     dependency_links=[
-        'git+https://github.com/Aalto-LeTech/js-jquery-toggle.git@1.1.0#egg=js-jquery-toggle-django-1.1.0&subdirectory=django',
+        'git+https://github.com/apluslms/js-jquery-toggle.git@1.1.0#egg=js-jquery-toggle-django-1.1.0&subdirectory=django',
     ],
 )
