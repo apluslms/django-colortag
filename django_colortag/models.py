@@ -4,8 +4,8 @@ from django.db import models
 from django.utils.crypto import get_random_string
 from django.utils.functional import cached_property
 from django.utils.text import slugify
-from django.utils.translation import ugettext_lazy as _
-from colorfield.fields import ColorField
+from django.utils.translation import gettext_lazy as _
+from colorfield import ColorField
 from functools import total_ordering
 
 from .templatetags.colortag import render_as_button
@@ -71,7 +71,7 @@ class ColorTag(models.Model):
         """
         return True
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, update_fields=None, **kwargs):
         assert self.name, "name is a required parameter"
 
         slug_candidate = self.slug or slugify(self.name)
@@ -83,4 +83,7 @@ class ColorTag(models.Model):
 
         self.slug = slug_candidate
 
-        return super().save(*args, **kwargs)
+        if update_fields is not None:
+            update_fields = tuple(set(update_fields) | {"slug"})
+
+        return super().save(*args, update_fields=update_fields, **kwargs)
