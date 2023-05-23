@@ -10,8 +10,8 @@ Installation and usage
 
 Requirements:
 
- * [Django](https://www.djangoproject.com/) 1.11+ (Django 1.9 and 1.10 are supported in versions 1.X of this project)
- * [django-html5-colorfield](https://github.com/knyghty/django-html5-colorfield) 1.0+
+ * [Django](https://www.djangoproject.com/) 3.2+ (Django 1.11 to Django 3 are supported in versions 2.0 to 2.3 of this project; Django 1.9 and 1.10 are supported in versions 1.X of this project)
+ * [django-html5-colorfield](https://github.com/knyghty/django-html5-colorfield) 2.0+
  * [js-jquery-toggle-django](https://github.com/Aalto-LeTech/js-jquery-toggle) for `jquery_toggle.js`
  * (recommended) [raphendyr-django-essentials](https://github.com/raphendyr/raphendyr-django-essentials) for app dependency management
 

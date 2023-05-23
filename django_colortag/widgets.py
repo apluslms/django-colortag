@@ -1,8 +1,8 @@
 from itertools import chain
 
 from django.forms import widgets
-from django.utils.encoding import force_text
-from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import force_str
+from django.utils.translation import gettext_lazy as _
 
 
 def get_colortag_attrs(colortag, options):
@@ -92,7 +92,7 @@ class ColortagSelectMultiple(ColortagMixIn, widgets.CheckboxSelectMultiple):
 
             for subvalue, sublabel in choices:
                 selected = (
-                    force_text(subvalue) in value and
+                    force_str(subvalue) in value and
                     (has_selected is False or self.allow_multiple_selected)
                 )
                 if selected is True and has_selected is False:
