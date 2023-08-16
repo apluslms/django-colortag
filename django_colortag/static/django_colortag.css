@@ -5,7 +5,11 @@
 	opacity: 1;
 	font-size: 100%;
 	display: inline-block;
-	margin: 0.2em 0; /* spacing between lines */
+	margin: 0.15em 0;
+}
+.btn.colortag {
+	padding: 0.2em 0.4em 0.1em;
+	margin: 0.15em;
 }
 .btn.colortag-light,
 .label.colortag-light {
@@ -24,13 +28,13 @@
 .label.colortag.mltsb-state-2 {
 	background-image: linear-gradient(
 		to right,
-		rgba(221, 221, 221, 0) 6px,
-		rgba(221, 221, 221, 0.75) 8px 29px,
-		rgba(221, 221, 221, 0) 31px
+		rgba(221, 221, 221, 0) 3px,
+		rgba(221, 221, 221, 0.75) 5px 21px,
+		rgba(221, 221, 221, 0) 23px
 	);
 }
 .btn.colortag:not(.mltsb-2-stage) > i {
-	padding-right: 6px;
+	padding-right: 0.1em;
 }
 .btn.colortag.mltsb-state-2 > i {
 	color: #000;
