@@ -145,7 +145,7 @@ class ColortagIEMultiWidget(widgets.MultiWidget):
 
     def set_subwidgets(self, choices):
         self.widgets = [ColortagIncludeExcludeWidget(tag=c) for c in choices]
-        self.widgets_names = ['_%s' % i for i in range(len(self.widgets))]
+        self.widgets_names = ['_%s' % choices[i].slug for i in range(len(self.widgets))]
 
     def decompress(self, value):
         if value == None:
