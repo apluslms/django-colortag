@@ -42,3 +42,17 @@
 .btn.colortag:hover {
 	opacity: 0.6;
 }
+
+.colortag.pinned:after {
+	position: relative;
+	top: 0px;
+	left: 4px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.7em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e146";
+}

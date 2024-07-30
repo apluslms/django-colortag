@@ -44,6 +44,10 @@ class ColorTag(models.Model):
     def html_label(self):
         return render_as_button(self, {'static': True})
 
+    @cached_property
+    def is_pinned(self):
+        return False
+
     def __str__(self):
         return 'ColorTag({!r}, {!r}, {!r})'.format(
             self.name, self.slug, self.description

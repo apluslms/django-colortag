@@ -24,6 +24,8 @@ def get_colortag_attrs(colortag, options):
 def get_colortag_classes(colortag, options):
     cls = set(('colortag',))
     cls.add('colortag-dark' if colortag.font_white else 'colortag-light')
+    if colortag.is_pinned:
+        cls.add('pinned')
     if options.get('active'):
         cls.add('colortag-active')
     if options.get('button'):
