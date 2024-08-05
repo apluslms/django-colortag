@@ -1,6 +1,11 @@
+:root {
+	--colortag-inactive-color: #ddd;
+}
+
 .btn.colortag,
 .label.colortag,
 .dropdown.create-tagging {
+	background-color: var(--colortag-color);
 	transition: all 0.2s ease 0s;
 	opacity: 1;
 	font-size: 100%;
@@ -22,25 +27,75 @@
 .btn.colortag:not(.colortag-active):not(.active):not(:hover),
 .label.colortag:not(.colortag-active):not(.active):not(:hover) {
 	color: #000;
-	background-color: #ddd !important;
-}
-.btn.colortag.mltsb-state-2,
-.label.colortag.mltsb-state-2 {
-	background-image: linear-gradient(
-		to right,
-		rgba(221, 221, 221, 0) 3px,
-		rgba(221, 221, 221, 0.75) 5px 21px,
-		rgba(221, 221, 221, 0) 23px
-	);
+	background-color: var(--colortag-inactive-color);
 }
 .btn.colortag:not(.mltsb-2-stage) > i {
 	padding-right: 0.1em;
+	top: 2px
 }
-.btn.colortag.mltsb-state-2 > i {
+
+
+/* Include exclude buttons */
+.colortag-inc-exc {
+	display: inline;
+}
+.colortag-inc-exc > .btn-check:not(:checked) + .colortag {
+	display: none;
+}
+.colortag-inc-exc > .btn.colortag.inactive {
+	border-color: var(--colortag-inactive-color);
+}
+.colortag-inc-exc > .btn.colortag.include {
+	background-color: var(--colortag-color);
+	border-color: var(--colortag-color);
+	box-shadow: none;
+}
+.colortag-inc-exc > .btn.colortag.exclude {
+	color: var(--colortag-color);
+	background-color: transparent;
+	background-image: none;
+	border-color: var(--colortag-color);
+	box-shadow: inset 0 0 0 1px var(--colortag-color);
+}
+.colortag-inc-exc > .btn.colortag-light.exclude {
 	color: #000;
+	border-color: var(--colortag-color);
 }
-.btn.colortag:hover {
-	opacity: 0.6;
+.colortag-inc-exc > .btn.colortag-dark.include,
+.colortag-inc-exc > .btn.colortag-dark.inactive:hover,
+.colortag-inc-exc > .btn.colortag-dark.exclude:hover {
+	color: #fff;
+}
+
+.colortag-inc-exc > .btn-check + .btn.colortag:before {
+	position: relative;
+	top: 2px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: 400;
+	line-height: 0.7;
+	margin-right: 0.2em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.colortag-inc-exc > .btn-check:checked + .btn.colortag.inactive:before {
+	content: "\e157";
+}
+.colortag-inc-exc > .btn-check:checked + .btn.colortag.inactive:not(:hover):before {
+	color: #6c757d;
+}
+.colortag-inc-exc > .btn-check:checked + .btn.colortag.include:before {
+	content: "\e067";
+}
+.colortag-inc-exc > .btn-check:checked + .btn.colortag.exclude:before {
+	content: "\e014";
+}
+
+/* Slightly transparent color preview on hover */
+.btn.colortag:hover,
+.colortag-inc-exc > .btn.colortag:hover {
+	background-color: color-mix(in srgb, var(--colortag-color) 70%, transparent);
 }
 
 .colortag.pinned:after {

@@ -17,28 +17,81 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: django_colortag_/models.py:23
+#: django_colortag/models.py
 msgid "Display name for tag"
 msgstr "Tagin näyttönimi"
 
-#: django_colortag_/models.py:24
+#: django_colortag/models.py
 msgid "Slug key for tag. If left blank, one is created from name"
 msgstr ""
 "Yksisanainen tunniste tagille. Jos jätät tyhjäksi, sopiva luodaan tagin "
 "nimestä."
 
-#: django_colortag_/models.py:25
+#: django_colortag/models.py
 msgid "Describe the usage or meaning of this tag"
 msgstr "Kuvaile tagin käyttö tai merkitys."
 
-#: django_colortag_/models.py:26
+#: django_colortag/models.py
 msgid "Color that is used as background for this tag"
 msgstr "Tagin taustaväri"
 
-#: django_colortag_/widgets.py:162
-msgid "Match any (OR)"
-msgstr "Sisällä osa (TAI)"
+#: django_colortag/templates/django_colortag/widgets/colortag_andor.html
+msgid "Show instructions"
+msgstr "Näytä ohjeet"
 
-#: django_colortag_/widgets.py:163
-msgid "Match all (AND)"
-msgstr "Sisällä kaikki (JA)"
+#: django_colortag/widgets.py
+msgid "Show a result if it has ANY of the selected tags."
+msgstr "Näytä hakutulos, jos sillä on JOKIN valituista tageista."
+
+#: django_colortag/widgets.py
+msgid "Show a result only if it has ALL of the selected tags."
+msgstr "Näytä hakutulos vain, jos sillä on KAIKKI valituista tageista."
+
+#: django_colortag/widgets.py
+msgid "Colortag filter"
+msgstr "Väritagisuodatin"
+
+#: django_colortag/widgets.py
+msgid ""
+"<p>You can filter results based on whether they are tagged with specified "
+"colortags.<br>Click on a tag button once if you wish to find results that "
+"<b>include</b> that tag. (The button will become colored and display the "
+"icon <span class='glyphicon glyphicon-check'></span>.)<br>If you wish to "
+"<b>exclude</b> results that have the tag, click on the button another time. "
+"(The button will become outlined with the tag color and display the icon "
+"<span class='glyphicon glyphicon-remove'></span>.)<br>If you click on a "
+"button one more time, it will return to the default state (gray) and will "
+"not be considered in the filtering.<br>You can also <i>right click</i> the "
+"tag buttons to toggle the state in the opposite direction.</p><p> You can "
+"use the OR/AND selection to determine if you wish the include-tags to be "
+"joined with an OR or an AND operator. This defines whether a result should "
+"appear if it has <b>any</b> of the tags or if it must have <b>all</b> of the "
+"selected tags.<br>However, the OR/AND selection <b>does not apply</b> to the "
+"tags to be <b>excluded</b>: If a result has <i>any</i> of the tags to be "
+"excluded, it will not appear in the search results.</p>"
+msgstr ""
+"<p>Voit suodattaa tuloksia sen perusteella, onko niissä tietty väritagi."
+"<br>Paina tagipainiketta kerran, jos haluat löytää kohteet, joissa <b>on</b> "
+"kyseinen tagi. (Painike muuttuu värilliseksi ja sisältää ikonin <span "
+"class='glyphicon glyphicon-check'></span>.)<br>Jos haluat, että kohteet, "
+"joissa on kyseinen tagi, <b>eivät näy</b> hakutuloksissa, paina painiketta "
+"toisen kerran. (Painike muuttuu valkoiseksi ja ääriviivat tagin väriseksi; "
+"painike sisältää ikonin <span class='glyphicon glyphicon-remove'></span>)."
+"<br>Jos painat painiketta vielä kerran, se palautuu oletustilaan "
+"(harmaaksi), eikä tagiä huomioida suodatuksessa.<br>Voit myös painaa "
+"tagipainiketta hiiren oikealla näppäimellä vaihtaaksesi painikkeen tilaa "
+"päinvastaiseen suuntaan.</p><p>Voit myös käyttää OR/AND-valintaa "
+"määrittääksesi, tulisiko sisällytettävät tagit yhdistää OR- vai AND-"
+"operaattorilla. Tämä määrittää, tulisiko tuloksen näkyä hakutuloksissa, jos "
+"siinä on <b>mikään</b> valituista tageistä, vai täytyisikö siinä olla "
+"<b>kaikki</b> valituista tageistä.<br>Huomaa, että OR/AND-valinta <b>ei "
+"päde</b> tageihin, joita <b>ei saa</b> esiintyä hakutuloksissa: mikäli "
+"kohteella on yksikään tageistä, joita ei saa esiintyä, kohde ei näy "
+"hakutuloksissa."
+
+#: django_colortag/widgets.py
+msgid ""
+"<br>(If a result has any of the tags to be excluded, it will not appear.)"
+msgstr ""
+"<br>(Mikäli kohteella on yksikään merkinnöistä, joita ei saa esiintyä, kohde "
+"ei näy hakutuloksissa.)"

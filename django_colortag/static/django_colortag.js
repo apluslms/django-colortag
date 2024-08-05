@@ -37,7 +37,7 @@ function django_colortag_label(colortag, options_) {
     classes.push(options['class'].split(' '));
   }
   attrs['class'] = classes.join(' ');
-  attrs['style'] = 'background-color: ' + colortag.color + ';';
+  attrs['style'] = '--colortag-color: ' + colortag.color + ';';
 
   for (var k in colortag['data-attrs']) {
     attrs['data-tag' + k] = colortag['data-attrs'][k];
@@ -59,7 +59,33 @@ function django_colortag_choice() {
 		buttonClass: '',
 		nocolor: true,
 		buttonSetup: function(input, button) {
-			button.css('backgroundColor', input.data('background'));
+			button.css('--colortag-color', input.data('background'));
 		},
 	});
 }
+
+function selectNextOption(e, increment = 1) {
+  const group = e.currentTarget;
+  const child_inputs = group.querySelectorAll("input");
+  const checked_i = Array.prototype.findIndex.call(child_inputs, (elem) => elem.checked);
+  const next = child_inputs[(checked_i + increment) % 3];
+  next.checked = true;
+  next.focus({ focusVisible: (e.type == "keydown")});
+  e.preventDefault();
+}
+
+window.addEventListener("load", (event) => {
+  /* Set up toggling between colortag include-exclude states */
+  const groups = document.querySelectorAll(".colortag-inc-exc");
+  for (const g of groups) {
+    g.addEventListener('click', selectNextOption);
+    g.addEventListener('keydown', function(e) {
+      if(e.keyCode == 13 || e.keyCode == 32) {
+          selectNextOption(e);
+      }
+   });
+   g.addEventListener('contextmenu', (e) => selectNextOption(e, 2));
+  }
+
+  $('[data-toggle="popover"]').popover();
+});
