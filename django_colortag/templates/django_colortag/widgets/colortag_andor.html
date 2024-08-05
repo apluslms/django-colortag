@@ -1,4 +1,52 @@
-<label class="and-or-label">
-  {% include "django/forms/widgets/input.html" %}
-  {{ widget.label }}
-</label>
+{% load i18n %}
+{% with id=widget.attrs.id %}
+<div
+	{% if id %} id="{{ id }}"{% endif %}
+	{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}
+>
+	<input type="radio" name="{{ widget.name }}"
+		{% if id %}id="{{ id }}-or"{% endif %}
+		class="btn-check"
+		value="false"
+		required
+		{% if not widget.attrs.checked %} checked {% endif %}
+	/>
+	<label
+		class="btn btn-outline-secondary"
+		{% if id %} for="{{ id }}-or"{% endif %}
+		{% for name, value in widget.attrs.or.items %}
+			{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}
+		{% endfor %}
+	>
+		OR
+	</label>
+
+	<input type="radio" name="{{ widget.name }}"
+		{% if id %}id="{{ id }}-and"{% endif %}
+		class="btn-check"
+		value="true"
+		{% if widget.attrs.checked %} checked {% endif %}
+	/>
+	<label
+		class="btn btn-outline-secondary"
+		{% if id %} for="{{ id }}-and"{% endif %}
+		{% for name, value in widget.attrs.and.items %}
+			{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}
+		{% endfor %}
+	>
+		AND
+	</label>
+</div>
+{% endwith %}
+{% with ht=widget.attrs.helptext%}
+{% if ht %}
+<a tabindex="0" class="btn btn-xs help-btn" role="button"
+	data-toggle="popover" data-trigger="focus hover" data-placement="auto" data-html="true"
+	title="{{ ht.title }}" data-content="{{ ht.content }}"
+>
+	<span class="{{ ht.icon|default:'glyphicon glyphicon-question-sign' }}"
+		aria-label="{% trans 'Show instructions' %}"
+	></span>
+</a>
+{% endif %}
+{% endwith %}

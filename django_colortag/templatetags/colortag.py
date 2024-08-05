@@ -1,3 +1,5 @@
+from typing import Optional
+
 from django import template
 from django.forms.utils import flatatt
 from django.utils.html import format_html
@@ -8,7 +10,10 @@ from ..widgets import get_colortag_attrs, get_colortag_classes
 register = template.Library()
 
 
-def render_as_button(colortag, extra=None):
+def render_as_button(
+        colortag: "ColorTag",
+        extra: Optional[dict[str, object]] = None
+        ):
     options = {
         'active': getattr(colortag, 'is_active', False),
         'element': 'span',
@@ -28,7 +33,7 @@ def render_as_button(colortag, extra=None):
     attrs = get_colortag_attrs(colortag, options)
     classes = get_colortag_classes(colortag, options)
     attrs['class'] = ' '.join(classes)
-    attrs['style'] = 'background-color: {};'.format(colortag.color)
+    attrs['style'] = '--colortag-color: {}; '.format(colortag.color)
 
     for k, v in getattr(colortag, 'data_attrs', {}).items():
         attrs['data-tag{}'.format(k)] = v
