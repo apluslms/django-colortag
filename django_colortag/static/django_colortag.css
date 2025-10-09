@@ -3,7 +3,7 @@
 }
 
 .btn.colortag,
-.label.colortag,
+.badge.colortag,
 .dropdown.create-tagging {
 	background-color: var(--colortag-color);
 	transition: all 0.2s ease 0s;
@@ -17,15 +17,15 @@
 	margin: 0.15em;
 }
 .btn.colortag-light,
-.label.colortag-light {
+.badge.colortag-light {
 	color: #000;
 }
 .btn.colortag-dark,
-.label.colortag-dark {
+.badge.colortag-dark {
 	color: #fff;
 }
 .btn.colortag:not(.colortag-active):not(.active):not(:hover),
-.label.colortag:not(.colortag-active):not(.active):not(:hover) {
+.badge.colortag:not(.colortag-active):not(.active):not(:hover) {
 	color: #000;
 	background-color: var(--colortag-inactive-color);
 }
@@ -34,6 +34,20 @@
 	top: 2px
 }
 
+/* Badge size variants */
+.badge-xs {
+    font-size: 0.8rem !important;
+    padding: 0.25em 0.4em;
+}
+.badge-sm {
+    font-size: 0.9rem !important;
+}
+.badge-lg {
+    font-size: 1.25rem !important;
+}
+.badge-xl {
+    font-size: 1.5rem !important;
+}
 
 /* Include exclude buttons */
 .colortag-inc-exc {
@@ -67,29 +81,34 @@
 	color: #fff;
 }
 
+/* Icon indicators (Bootstrap Icons) for include/exclude/inactive states */
 .colortag-inc-exc > .btn-check + .btn.colortag:before {
 	position: relative;
 	top: 2px;
 	display: inline-block;
-	font-family: 'Glyphicons Halflings';
+	font-family: 'bootstrap-icons';
 	font-style: normal;
 	font-weight: 400;
 	line-height: 0.7;
-	margin-right: 0.2em;
+	margin-right: 0.25em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	content: ""; /* empty until a state is active */
 }
+/* Inactive (neutral) -> square icon */
 .colortag-inc-exc > .btn-check:checked + .btn.colortag.inactive:before {
-	content: "\e157";
+	content: "\f584"; /* bi-square */
 }
 .colortag-inc-exc > .btn-check:checked + .btn.colortag.inactive:not(:hover):before {
 	color: #6c757d;
 }
+/* Include -> check */
 .colortag-inc-exc > .btn-check:checked + .btn.colortag.include:before {
-	content: "\e067";
+	content: "\f271"; /* bi-check2-square */
 }
+/* Exclude -> x */
 .colortag-inc-exc > .btn-check:checked + .btn.colortag.exclude:before {
-	content: "\e014";
+	content: "\f659"; /* bi-x-lg */
 }
 
 /* Slightly transparent color preview on hover */
@@ -103,11 +122,11 @@
 	top: 0px;
 	left: 4px;
 	display: inline-block;
-	font-family: 'Glyphicons Halflings';
+	font-family: 'bootstrap-icons';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7em;
+	font-size: 0.75em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	content: "\e146";
+	content: "\f4ec"; /* bi-pin-fill */
 }

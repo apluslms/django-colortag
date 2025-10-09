@@ -18,9 +18,9 @@ def get_colortag_attrs(colortag, options):
     }
     if not options.get('no_tooltip') and colortag.description:
         attrs.update({
-            'data-toggle': 'tooltip',
-            'data-trigger': options.get('tooltip_trigger', 'hover'),
-            'data-placement': options.get('tooltip_placement', 'top'),
+            'data-bs-toggle': 'tooltip',
+            'data-bs-trigger': options.get('tooltip_trigger', 'hover'),
+            'data-bs-placement': options.get('tooltip_placement', 'top'),
             'title': colortag.description,
         })
     return attrs
@@ -35,8 +35,8 @@ def get_colortag_classes(colortag, options):
         cls.add('colortag-active')
     if options.get('button'):
         cls.add('btn')
-    if options.get('label'):
-        cls.update(('label', 'label-{}'.format(options.get('size', 'xs'))))
+    if options.get('badge'):
+        cls.update(('badge', 'badge-{}'.format(options.get('size', 'xs'))))
     if options.get('class'):
         cls.update(options['class'].split(' '))
     return cls
@@ -241,7 +241,7 @@ class AndOrWidget(widgets.CheckboxInput):
                  attrs: Optional[dict[str, object]] = None,
                  check_test: Optional[Callable[[object], bool]] = None,
                  ) -> None:
-        add_classes = "segmented-select sm and-or"
+        add_classes = "btn-group btn-group-sm and-or"
         if not attrs:
             attrs = {
                 "class": add_classes,
@@ -251,11 +251,11 @@ class AndOrWidget(widgets.CheckboxInput):
         else:
             attrs["class"] += " " + add_classes
         attrs.setdefault('or', {
-            'data-toggle': 'tooltip',
+            'data-bs-toggle': 'tooltip',
             'title': _("Show a result if it has ANY of the selected tags."),
         })
         attrs.setdefault('and', {
-            'data-toggle': 'tooltip',
+            'data-bs-toggle': 'tooltip',
             'title': _("Show a result only if it has ALL of the selected tags."),
         })
         super().__init__(attrs, check_test)
@@ -306,13 +306,13 @@ class ColortagIEAndOrWidget(widgets.MultiWidget):
             'use_and': AndOrWidget({
                 'helptext': helptext,
                 'or': {
-                    'data-toggle': 'tooltip',
-                    'data-html': "true",
+                    'data-bs-toggle': 'tooltip',
+                    'data-bs-html': "true",
                     'title': or_tooltip,
                 },
                 'and': {
-                    'data-toggle': 'tooltip',
-                    'data-html': "true",
+                    'data-bs-toggle': 'tooltip',
+                    'data-bs-html': "true",
                     'title': and_tooltip,
                 },
             }),

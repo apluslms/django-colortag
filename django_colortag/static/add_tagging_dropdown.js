@@ -117,7 +117,7 @@ const get_create_tagging_dropdown_closure = (function ($) {
           .attr({
             'type': 'button',
             'id': button_id,
-            'data-toggle': 'dropdown',
+            'data-bs-toggle': 'dropdown',
             'aria-haspopup': 'true',
             'aria-expanded': 'true',
           })
@@ -129,7 +129,7 @@ const get_create_tagging_dropdown_closure = (function ($) {
           const $li = $('<li />').attr({ 'id': slug_id_prefix + tag.slug });
           const $a = $('<a />')
             .attr({ href: '#' })
-            .append(django_colortag_label(tag))
+            .append(django_colortag_badge(tag))
             .on('click', click_handler_for_slug(tag.slug));
           $li.append($a);
           return $li;

@@ -41,7 +41,7 @@ class ColorTag(models.Model):
         return render_as_button(self)
 
     @cached_property
-    def html_label(self):
+    def html_badge(self):
         return render_as_button(self, {'static': True})
 
     @cached_property

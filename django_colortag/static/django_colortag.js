@@ -1,10 +1,10 @@
-function django_colortag_label(colortag, options_) {
+function django_colortag_badge(colortag, options_) {
   // Almost a direct port of templatetags/colortag.py:render_as_button
   const default_options = {
     active: true,
     static: true,
     element: 'span',
-    label: true,
+    badge: true,
   }
   const options = jQuery.extend({}, default_options, options_);
 
@@ -15,9 +15,9 @@ function django_colortag_label(colortag, options_) {
   };
   if (!options['no_tooltip'] && colortag.description) {
     $.extend(attrs, {
-      'data-toggle': 'tooltip',
-      'data-trigger': options['tooltip_trigger'] || 'hover',
-      'data-placement': options['tooltip_placement'] || 'top',
+      'data-bs-toggle': 'tooltip',
+      'data-bs-trigger': options['tooltip_trigger'] || 'hover',
+      'data-bs-placement': options['tooltip_placement'] || 'top',
       'title': colortag.description,
     });
   }
@@ -30,8 +30,8 @@ function django_colortag_label(colortag, options_) {
   if (options['button']) {
     classes.push('btn');
   }
-  if (options['label']) {
-    classes.push('label', 'label-' + (options['size'] || 'xs'));
+  if (options['badge']) {
+    classes.push('badge', 'badge-' + (options['size'] || 'xs'));
   }
   if (options['class']) {
     classes.push(options['class'].split(' '));
@@ -87,5 +87,10 @@ window.addEventListener("load", (event) => {
    g.addEventListener('contextmenu', (e) => selectNextOption(e, 2));
   }
 
-  $('[data-toggle="popover"]').popover();
+  // Bootstrap 5 popover initialization with jQuery
+  $('[data-bs-toggle="popover"]').each(function() {
+    if (this) {
+      try { new bootstrap.Popover(this); } catch (_) {}
+    }
+  });
 });
