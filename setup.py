@@ -19,7 +19,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='django-colortag',
-    version='2.5.0',
+    version='3.0.0',
     description='Django tools for data tagging models',
     long_description=long_description,
     keywords='django models tagging',
