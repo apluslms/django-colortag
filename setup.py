@@ -57,9 +57,9 @@ setup(
     install_requires=[
         'Django >=3.2.0, <5',
         'django-html5-colorfield >=2.0, <3',
-        'js-jquery-toggle-django >=1.1.0, <2',
+        'js-jquery-toggle-django >=2.0.0, <3',
     ],
     dependency_links=[
-        'git+https://github.com/apluslms/js-jquery-toggle.git@1.1.0#egg=js-jquery-toggle-django-1.1.0&subdirectory=django',
+        'git+https://github.com/apluslms/js-jquery-toggle.git@2.0.0#egg=js-jquery-toggle-django-2.0.0&subdirectory=django',
     ],
 )
