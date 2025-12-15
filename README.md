@@ -11,10 +11,10 @@ Installation and usage
 Requirements:
 
  * [Django](https://www.djangoproject.com/) 3.2+
-   (Django 4.2 is supported in the versions 2.4 and 2.5 of this project;
+   (Django 4.2 is supported in the versions 2.4, 2.5 and 3.0 of this project;
    Django 1.11 to Django 3 are supported in versions 2.0 to 2.3 of this project;
    Django 1.9 and 1.10 are supported in versions 1.X of this project)
- * [jQuery](https://jquery.com/) (3.2+ is required for version 2.5 of this project)
+ * [jQuery](https://jquery.com/) (3.2+ is required for version 2.5+ version of this project)
  * [django-html5-colorfield](https://github.com/knyghty/django-html5-colorfield) 2.0+
  * [js-jquery-toggle-django](https://github.com/apluslms/js-jquery-toggle) for `jquery_toggle.js`
  * (recommended) [django-essentials](https://github.com/apluslms/django-essentials) for app dependency management
@@ -22,7 +22,7 @@ Requirements:
 Add stuff to `requirements.txt`:
 
 ```
-git+https://github.com/apluslms/django-colortag.git@2.5.0#egg=django-colortag~=2.5.0
+git+https://github.com/apluslms/django-colortag.git@3.0.0#egg=django-colortag~=3.0.0
 ```
 
 Install them with `pip install --process-dependency-links -r requirements.txt`
@@ -36,7 +36,7 @@ Add relevant stuff to `INSTALLED_APPS`:
 Add something like this to your html header:
 
 ```html+django
-<!-- TODO: load bootstrap v3 css -->
+<!-- TODO: load bootstrap v5 css -->
 <!-- TODO: load jquery -->
 <!-- jquery toggle is used by colortag js if using django_colortag_choice -->
 {% include 'jquery_toggle.head.html' %}
