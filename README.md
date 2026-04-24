@@ -11,7 +11,8 @@ Installation and usage
 Requirements:
 
  * [Django](https://www.djangoproject.com/) 3.2+
-   (Django 4.2 is supported in the versions 2.4, 2.5 and 3.0 of this project;
+   (Django 5.2 is supported in the version 3.1 of this project;
+   Django 4.2 is supported in the versions 2.4, 2.5 and 3.0 of this project;
    Django 1.11 to Django 3 are supported in versions 2.0 to 2.3 of this project;
    Django 1.9 and 1.10 are supported in versions 1.X of this project)
  * [jQuery](https://jquery.com/) (3.2+ is required for version 2.5+ version of this project)

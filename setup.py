@@ -19,7 +19,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='django-colortag',
-    version='3.0.1',
+    version='3.1.0',
     description='Django tools for data tagging models',
     long_description=long_description,
     keywords='django models tagging',
@@ -44,10 +44,15 @@ setup(
         'Framework :: Django',
         'Framework :: Django :: 3.2',
         'Framework :: Django :: 4.2',
+        'Framework :: Django :: 5.2',
 
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Programming Language :: Python :: 3 :: Only',
     ],
 
@@ -55,7 +60,7 @@ setup(
     include_package_data = True,
 
     install_requires=[
-        'Django >=3.2.0, <5',
+        'Django >=3.2.0, <6',
         'django-html5-colorfield >=2.0, <3',
         'js-jquery-toggle-django >=2.0.0, <3',
     ],
